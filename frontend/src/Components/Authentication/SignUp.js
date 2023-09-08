@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { FormControl, VStack ,Input,InputGroup,FormLabel,Container,Box,Center,Text} from '@chakra-ui/react'
-import { Checkbox, Button } from '@chakra-ui/react'
+import { Checkbox, CheckboxGroup, Button } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom"
 import { useToast } from "@chakra-ui/react"
@@ -10,10 +10,12 @@ const SignUp = () => {
     const [Name, setName] = useState();
     const [Email, setEmail] = useState();
     const [Password, setPassword] = useState();
+    const [Loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const Toast = useToast();
 
     const SignUpHandler = async() => {
+        setLoading(true);
         if (!Name || !Email || !Password) {
             Toast({
                 title: "Please Fill all the Feilds",
@@ -22,6 +24,7 @@ const SignUp = () => {
                 isClosable: true,
                 position: "bottom",
             });
+            setLoading(false);
             return;
         }
         try {
@@ -30,8 +33,8 @@ const SignUp = () => {
                     "Content-type": "application/json",
                 },
             };
-          const { data }=await axios.post(
-                "https://backendfpplugin.onrender.com/api/accountholder",
+            const { data } = await axios.post(
+                "/api/accountholder",
                 {
                     Name,
                     Email,
@@ -39,17 +42,18 @@ const SignUp = () => {
                 },
                 config
             );
-            console.log(data);
+            //console.log(data);
             navigate('/Login')
         } catch (error) {
              Toast({
               title: "Error Occured!",
-             description: error,
+             description: error.response.data.message,
               status: "error",
               duration: 5000,
              isClosable: true,
              position: "bottom",
              });
+            setLoading(false);
         }
     }
     const LoginPageHandler = () => {

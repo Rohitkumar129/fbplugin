@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { FormControl, VStack ,Input,InputGroup,FormLabel,Container,Box,Center,Text} from '@chakra-ui/react'
-import { Checkbox, Button } from '@chakra-ui/react'
+import { Checkbox, CheckboxGroup, Button } from '@chakra-ui/react'
 import { useToast } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom"
@@ -12,6 +12,7 @@ import axios from "axios"
 const Login = () => {
   const [Email, setEmail] = useState();
   const [Password, setPassword] = useState();
+  const [Loading, setLoading] = useState(false);
   const Toast = useToast();
   const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ const Login = () => {
     }
   
   const FBconnectionHandler = async() => {
+    setLoading(true);
     if (!Email || !Password) {
       Toast({
         title: "Please Fill all the Feilds",
@@ -28,6 +30,7 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
+      setLoading(false);
       return;
     }
     try {
@@ -37,7 +40,7 @@ const Login = () => {
         },
       };
       const { data } = await axios.post(
-        "https://backendfpplugin.onrender.com/api/authorise",
+        "/api/authorise",
         {
           Email,
           Password
@@ -45,6 +48,7 @@ const Login = () => {
         config
       );
       localStorage.setItem("userInfo", JSON.stringify(data));
+      setLoading(false);
       navigate('/FBconnect');
     } catch (error) {
         Toast({
@@ -55,6 +59,7 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
+      setLoading(false);
     }
   }
   return (

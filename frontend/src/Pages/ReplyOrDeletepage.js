@@ -2,14 +2,17 @@ import React from 'react'
 import { Container, Center, Box, VStack, Text , Button} from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useState } from 'react';
 import { ChatState } from '../Context/ChatProvider';
 const ReplyOrDeletepage = ({ Name }) => {
+  const [Loading, setLoading] = useState(false);
   const { user } = ChatState();
   const navigate = useNavigate();
   const MessageHandler = () => {
     navigate('/Chatpage')
   }
   const IntegrationdeleteHandler = async () => {
+    setLoading(true);
     if (!user) {
       navigate('/')
     } else {
@@ -19,12 +22,13 @@ const ReplyOrDeletepage = ({ Name }) => {
         },
       }
       await axios.delete(
-        `https://backendfpplugin.onrender.com/api/deleteintegration`,
+        `/api/deleteintegration`,
         config,
-         navigate('/')
+        navigate('/')
       ).catch((error) => {
         console.error('Error making DELETE request:', error);
       });
+      setLoading(false);
     }
   };
   return (
