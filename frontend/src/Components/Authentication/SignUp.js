@@ -41,7 +41,7 @@ const SignUp = () => {
                     Password,
                 },
                 config
-            );
+            )
             //console.log(data);
             navigate('/Login')
         } catch (error) {

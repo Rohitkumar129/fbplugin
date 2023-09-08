@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const registerUser = asyncHandler(async (req, res) => {
     const { Name, Email, Password } = req.body;
     if (!Name || !Email || !Password) {
-        res.status(400);
+        res.status(400).json({msg:"sucesss"});
     throw new Error("Please Enter all the Feilds");
     }
   const gmailPattern = /@gmail\.com$/;
@@ -16,7 +16,7 @@ const registerUser = asyncHandler(async (req, res) => {
   if (isGmail) {
     const userExists = await User.findOne({ Email });
     if (userExists) {
-      res.status(400);
+        res.status(400).json({msg:"sucesss"});
       throw new Error("User already exists");
     }
     const user = await User.create({
@@ -33,11 +33,11 @@ const registerUser = asyncHandler(async (req, res) => {
         token: generateToken(user._id),
       });
     } else {
-      res.status(400);
+        res.status(400).json({msg:"sucesss"});
       throw new Error("User not found");
     }
   } else {
-    res.status(400);
+        res.status(400).json({msg:"sucesss"});
       throw new Error("mail should be in the form of example@gmail.com");
   }
 })
