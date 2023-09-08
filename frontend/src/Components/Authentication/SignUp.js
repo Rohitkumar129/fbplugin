@@ -39,7 +39,7 @@ const SignUp = () => {
                 },
                 config
             );
-            //console.log(data);
+            console.log(data);
             navigate('/Login')
         } catch (error) {
              Toast({
