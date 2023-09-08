@@ -12,6 +12,8 @@ import i2 from '../Images/i2.png'
 import i3 from '../Images/i3.png'
 import i4 from '../Images/i4.png'
 import img from '../Images/img.png'
+
+
 const Chatpage = () => {
   const [Data, setdata] = useState([]);
   const [conversations, setconversations] = useState([]);
@@ -28,13 +30,11 @@ const Chatpage = () => {
       if (conversations) {
     setdifferentusers(conversations.data);
       }
-      // if (differentusers) {
-      //   setchats(differentusers.map((elem)=>)
-      // }
     }
     fetchdata();
   }, [Data, conversations, differentusers])
  // console.log(Data);
+  
   return (
     <Grid
   h='100%'
