@@ -30,7 +30,7 @@ const SignUp = () => {
                     "Content-type": "application/json",
                 },
             };
-             await axios.post(
+          const { data }=await axios.post(
                 "https://backendfpplugin.onrender.com/api/accountholder",
                 {
                     Name,
