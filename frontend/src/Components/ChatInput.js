@@ -13,7 +13,7 @@ const ChatInput = ({ differentusers, data }) => {
     setMessage(e.target.value);
   };
 
-  const accessToken = "EAAJ0ftGBlqwBO0ZAbHtsSTyQyXUkZAKCZCJyjqnDB1Hb3EebHZCczRWdSLL7mulroNEHiDRX68ZBPoZBwyv0dc34lP3PHNQnTJgPXy31FefEyZB2upkk8dx89RLNvhug0SdNeeSASMLQ7iYr3BJfboLD7hlSFjlZBtpcGEFWVJfn6g0Cu6qOZBNlAjSGHYGCfkmCNiwlD0t0ZAUGtOjcoNtyZBXZCRHA";
+  const accessToken= "EAAJ0ftGBlqwBO2WFzy45Jm41dQVp3K66FhCtGVRd6TUZAytQExOUGltxyc2PIM8oOhp1eCfuZBRJ5X88ibMSepVPr1dKkOkE9tCMHaYziaBZAVfNAps91lxe8B9jTJp0acXrMKmXzZAjIRYEYu0ygar15RrrTFyYyZCDRjkyNoUvN0xKt2Rl3hyUHdzoNZCJQZD"
 
   const handleclick = () => {
     if (!recipientID) return;
