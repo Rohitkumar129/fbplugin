@@ -12,7 +12,6 @@ import axios from "axios"
 const Login = () => {
   const [Email, setEmail] = useState();
   const [Password, setPassword] = useState();
-  const [Loading, setLoading] = useState(false);
   const Toast = useToast();
   const navigate = useNavigate();
 
@@ -21,7 +20,6 @@ const Login = () => {
     }
   
   const FBconnectionHandler = async() => {
-    setLoading(true);
     if (!Email || !Password) {
       Toast({
         title: "Please Fill all the Feilds",
@@ -30,7 +28,6 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
-      setLoading(false);
       return;
     }
     try {
@@ -48,7 +45,6 @@ const Login = () => {
         config
       );
       localStorage.setItem("userInfo", JSON.stringify(data));
-      setLoading(false);
       navigate('/FBconnect');
     } catch (error) {
         Toast({
@@ -59,7 +55,6 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
-      setLoading(false);
     }
   }
   return (

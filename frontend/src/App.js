@@ -4,7 +4,6 @@ import SignUp from './Components/Authentication/SignUp';
 import Login from './Components/Authentication/Login';
 import ConnectyourFB from './Pages/ConnectyourFB';
 import ReplyOrDeletepage from './Pages/ReplyOrDeletepage';
-import { useState,useEffect } from 'react';
 import Chatpage from './Pages/Chatpage';
 function App() {
  // console.log(data);

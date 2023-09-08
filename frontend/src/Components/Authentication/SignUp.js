@@ -10,12 +10,10 @@ const SignUp = () => {
     const [Name, setName] = useState();
     const [Email, setEmail] = useState();
     const [Password, setPassword] = useState();
-    const [Loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const Toast = useToast();
 
     const SignUpHandler = async() => {
-        setLoading(true);
         if (!Name || !Email || !Password) {
             Toast({
                 title: "Please Fill all the Feilds",
@@ -24,7 +22,6 @@ const SignUp = () => {
                 isClosable: true,
                 position: "bottom",
             });
-            setLoading(false);
             return;
         }
         try {
@@ -53,7 +50,6 @@ const SignUp = () => {
              isClosable: true,
              position: "bottom",
              });
-            setLoading(false);
         }
     }
     const LoginPageHandler = () => {
