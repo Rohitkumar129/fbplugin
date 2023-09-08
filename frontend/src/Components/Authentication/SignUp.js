@@ -31,7 +31,7 @@ const SignUp = () => {
                 },
             };
              await axios.post(
-                "/api/accountholder",
+                "https://backendfpplugin.onrender.com/api/accountholder",
                 {
                     Name,
                     Email,

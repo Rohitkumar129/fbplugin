@@ -19,7 +19,7 @@ const ReplyOrDeletepage = ({ Name }) => {
         },
       }
       await axios.delete(
-        `/api/deleteintegration`,
+        `https://backendfpplugin.onrender.com/api/deleteintegration`,
         config,
          navigate('/')
       ).catch((error) => {
