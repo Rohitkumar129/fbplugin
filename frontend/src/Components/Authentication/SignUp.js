@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { FormControl, VStack ,Input,InputGroup,FormLabel,Container,Box,Center,Text} from '@chakra-ui/react'
-import { Checkbox, CheckboxGroup, Button } from '@chakra-ui/react'
+import { Checkbox, Button } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom"
 import { useToast } from "@chakra-ui/react"
@@ -33,7 +33,7 @@ const SignUp = () => {
                     "Content-type": "application/json",
                 },
             };
-            const { data } = await axios.post(
+             await axios.post(
                 "/api/accountholder",
                 {
                     Name,

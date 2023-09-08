@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Textarea, Button, Flex, Spacer } from '@chakra-ui/react';
 import axios from 'axios';
 import { ChatState } from '../Context/ChatProvider';
 
 const ChatInput = ({ differentusers, data }) => {
   const [message, setMessage] = useState('');
-  const { selectedChat, recipientID, setRecipientID } = ChatState();
+  const {  recipientID } = ChatState();
 
     if (!differentusers || !data) return;
 

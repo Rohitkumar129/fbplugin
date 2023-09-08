@@ -3,14 +3,12 @@ import { Box, Image, Text,Grid,GridItem } from '@chakra-ui/react'
 import { ChatState } from "../Context/ChatProvider";
 
 const CardLeft = ({ DifferentUsers,data }) => {
-    const { selectedChat,setSelectedChat,recipientID,
+    const { selectedChat,setSelectedChat,
           setRecipientID } = ChatState();
     if (!DifferentUsers || !data) { return null; }
           //  if (!DifferentUsers.messages) return null;
     //if(!DifferentUsers.messages) return null;
-    const localdata = DifferentUsers.map((elem) => elem.messages);
-    console.log(recipientID)
-
+   
     return (
     <div>
         {
