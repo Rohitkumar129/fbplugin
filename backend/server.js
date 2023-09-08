@@ -9,7 +9,7 @@ connectDB();
 const app = express();
 
 app.use(express.json()); 
-app.listen(5000, console.log('server started on 5000'));
+app.listen(process.env.PORT, console.log('server started on 5000'));
 app.get('/', (req, res) => {
     res.send('Welcome');
 })
